@@ -37,6 +37,7 @@ public class Ispikit : MonoBehaviour {
 #endif
 	private static System.Timers.Timer timer;
 	void Awake () {
+
 		// As soon as Game Object is awake, we start initializing the plugin
 		Debug.Log ("About to initialize plugin");
 		string gameObjectName = "GameObject";
@@ -45,11 +46,13 @@ public class Ispikit : MonoBehaviour {
 		// of the Game Object and Callback for when init is done
 		Debug.Log (startInitialization(gameObjectName, callbackName));
 		Debug.Log ("Initialization started");
-	}
-	void awake () {
+
+		//audio permissions check
 		AudioSource audPermissions = GetComponent<AudioSource>();
 		audPermissions.clip = Microphone.Start("Built-in Microphone", true, 1, 1);
+
 	}
+
 	void Update () {
 	}
 	public void initCallback(string status) {
