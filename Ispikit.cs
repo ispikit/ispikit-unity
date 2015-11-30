@@ -46,7 +46,9 @@ public class Ispikit : MonoBehaviour {
 		Debug.Log (startInitialization(gameObjectName, callbackName));
 		Debug.Log ("Initialization started");
 	}
-	void Start () {
+	void awake () {
+		AudioSource audPermissions = GetComponent<AudioSource>();
+		audPermissions.clip = Microphone.Start("Built-in Microphone", true, 1, 1);
 	}
 	void Update () {
 	}

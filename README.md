@@ -58,6 +58,13 @@ You can use the provided `Ispikit.cs` file to start building on the plugin:
 
 You can reuse this boilerplate code to build your application using the more detailed docs below. Note that you should use the correct Game Object names when registering callbacks.
 
+We cannot directly access the microphone permissions from unity. As a work around, we recommend adding the following code to your awake function to call the microphone permissions when the app opens the first time.
+
+void awake () {
+  AudioSource audPermissions = GetComponent<AudioSource>();
+  audPermissions.clip = Microphone.Start("Built-in Microphone", true, 1, 1);
+}
+
 ## 4. Usage
 
 The available API calls are listed in `iOS/UAnalyzer.h`. They include calls to send instructions to the plugins and calls to register callback functions. Callback are functions that take one argument, a string. They are identified by their method name and the name of the Game Object they are in. The object they belong to should not matter.
@@ -131,5 +138,3 @@ If scores are considered too high for the application, strictness can be adjuste
 ### 4.l `int addWord(string word, string pronunciation);`
 
 All words in sentences to be recognized should be known by the Ispikit plugin. The plugin comes with a large dictionary that contains most English words. It can be viewed in `upalbundle.bundle/libdictionary.so` which is an ASCII text file. However, new words can be added with `addWord`, using the [CMU sphinx pronunciation dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) syntax.
-
-
