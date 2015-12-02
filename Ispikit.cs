@@ -178,11 +178,11 @@ public class Ispikit : MonoBehaviour {
 		timer.AutoReset = false;
 		timer.Enabled = true;
 	}
-			#if UNITY_IOS
-			public void completionCallback(string status) {
-			#elif UNITY_ANDROID
+#if UNITY_IOS
+	public void completionCallback(string status) {
+#elif UNITY_ANDROID
 	public void completionCallback(int completion) {
-				#endif
+#endif
 		// This callback is called during analysis
 		// Status is between "0" and "100", it is the percentage of completion of
 		// analysis, it can be used to display a progress bar.
