@@ -23,7 +23,7 @@ contact us at info@ispikit.com for the full version.
 * Waveform: During recording, waveform callbacks can be used to draw and display the recorded audio.
 * Pitch tracking: During recording, pitch callbacks can be used to plot user's pitch contour (intonation).
 * Local-only: Everything happens locally, no network call made.
-* Cross-platform: compatible with all iOS device architectures and Android (ARM and Intel architectures, this version only works on Android 6.0, until next update).
+* Cross-platform: compatible with all iOS device architectures and Android (ARM and Intel architectures).
 
 ## 2. Content
 
