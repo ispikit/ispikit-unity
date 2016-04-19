@@ -23,7 +23,7 @@ contact us at info@ispikit.com for the full version.
 * Waveform: During recording, waveform callbacks can be used to draw and display the recorded audio.
 * Pitch tracking: During recording, pitch callbacks can be used to plot user's pitch contour (intonation).
 * Local-only: Everything happens locally, no network call made.
-* Cross-platform: compatible with all iOS device architectures and Android (ARM and Intel architectures).
+* Cross-platform: compatible with all iOS device architectures and Android (ARM and Intel architectures). It also includes a Mac OSX build that can be used for development (in the editor or as a standalone Mac OSX app).
 
 ## 2. Content
 
@@ -34,15 +34,16 @@ This package includes:
 * `upalbundle.bundle/`: contains resources necessary for the plugin to work.
 * `iOS/`: contains the binaries for iOS (all ARM architectures).
 * `Android/`: contains the binaries for Android (all ARM and x86 architectures).
+* `x86_64/`: contains the binaries for Mac OSX 64 bits.
 * `Ispikit.cs`: Small boilerplate file to load and showcase the plugin's features.
 
 ## 3. Starting with the Ispikit Unity plugin
 
 You can use the provided `Ispikit.cs` file to start building on the plugin:
 
-* Add the content of the archive into the `Assets/Plugins` folder of a Unity application (`Ispikit.cs`, the `iOS/`, `Android/` and `upalbundle.bundle/` folders. If the `iOS/` or `Android/` folder already exists, add the files into the existing folder).
+* Add the content of the archive into the `Assets/Plugins` folder of a Unity application (`Ispikit.cs`, the `iOS/`, `Android/`, `x86_64` and `upalbundle.bundle/` folders. If the `iOS/`, `x86_64` or `Android/` folder already exists, add the files into the existing folder).
 * In the editor, add `Ispikit.cs` into a Game Object named "GameObject".
-* Using the plugin inspector, make sure it builds for iOS or Android.
+* Using the plugin inspector, make sure it builds for iOS, Mac OSX x86_64 or Android.
 * In the editor, add the Game Object to a scene.
 * Compile and launch the application on an iOS or Android device.
 * The application will:
@@ -74,10 +75,12 @@ void awake () {
 
 The available API calls include calls to send instructions to the plugin and calls to register callback functions.
 
-The APIs on Android and iOS are similar but there are a few differences due to Unity's internals:
+The APIs on Android, Mac OSX and iOS are similar but there are a few differences due to Unity's internals:
 
 * On iOS, callback functions are identified by their method name and the name of the Game Object they are in. The object they belong to should not matter. On Android, delegates are used.
 * On iOS, callbacks are functions that take one argument, a string. In this section, we also document how the strings in callback should be parsed to extract usable information. On Android, more arguments can be passed to callbacks, so less parsing is required.
+
+Note that for now, the Mac OSX version has the same API as the Android version, hence we will only document the Android and iOS versions.
 
 ### 4.a startInitialization
 
