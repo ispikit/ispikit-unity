@@ -3,5 +3,5 @@
 -upperf 6855.4976
 -feat 1s_c_d_dd
 -agc none
--cmn current
+-cmn prior
 -varnorm no
